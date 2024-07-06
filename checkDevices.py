@@ -35,6 +35,8 @@ def checkDevices(mode=None, maxDevices=None, needList=True):
                 if len(parts) == 2:
                     name = parts[0]
                     status = parts[1]
+                    if status.find(" ") != -1:
+                        status = status.split(" ")[1]
                     devicesList.append(Device(name, status))
 
     if len(devicesList) == 0:
